@@ -1,0 +1,8 @@
+[package]
+name = "bimultimap"
+version = "0.1.0"
+authors = ["goose121 <goose121@users.noreply.github.com>"]
+
+[dependencies]
+failure = "0.1.2"
+ndarray = "0.12.0"
