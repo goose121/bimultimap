@@ -105,24 +105,24 @@ where
         self.bucket_mut(&entry.0, &entry.1).remove(entry)
     }
 
-	/// Returns an iterator over all values associated with a given key.
-	///
-	/// # Example
-	///
-	/// ```
-	/// # use bimultimap::BiMultiMap;
-	/// # use std::collections::HashSet;
-	/// let mut map = BiMultiMap::new(10, 10);
-	///	map.insert(10, 10);
-	///	map.insert(12, 32);
-	///	map.insert(10, 3389283);
-	///
-	///	let ten_set: HashSet<_> = [10, 3389283].into_iter().collect();
-	///	assert_eq!(map.key_iter(&10).collect::<HashSet<_>>(), ten_set);
-	///
-	///	let twelve_set: HashSet<_> = [32].into_iter().collect();
-	///	assert_eq!(map.key_iter(&12).collect::<HashSet<_>>(), twelve_set);
-	/// ```
+    /// Returns an iterator over all values associated with a given key.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// # use bimultimap::BiMultiMap;
+    /// # use std::collections::HashSet;
+    /// let mut map = BiMultiMap::new(10, 10);
+    /// map.insert(10, 10);
+    /// map.insert(12, 32);
+    /// map.insert(10, 3389283);
+    ///
+    /// let ten_set: HashSet<_> = [10, 3389283].into_iter().collect();
+    /// assert_eq!(map.key_iter(&10).collect::<HashSet<_>>(), ten_set);
+    ///
+    /// let twelve_set: HashSet<_> = [32].into_iter().collect();
+    /// assert_eq!(map.key_iter(&12).collect::<HashSet<_>>(), twelve_set);
+    /// ```
     pub fn key_iter<'a, 'b>(&'a self, key: &'b K) -> impl Iterator<Item = &'a V> + 'b
     where
         'a: 'b,
@@ -141,24 +141,24 @@ where
         })
     }
 
-	/// Returns an iterator over all keys associated with a given value.
-	///
-	/// # Example
-	///
-	/// ```
-	/// # use bimultimap::BiMultiMap;
-	/// # use std::collections::HashSet;
-	/// let mut map = BiMultiMap::new(10, 10);
-	///	map.insert(10, 10);
-	///	map.insert(12, 10);
-	///	map.insert(9, 3);
-	///
-	///	let ten_set: HashSet<_> = [10, 12].into_iter().collect();
-	///	assert_eq!(map.val_iter(&10).collect::<HashSet<_>>(), ten_set);
-	///
-	///	let three_set: HashSet<_> = [9].into_iter().collect();
-	///	assert_eq!(map.val_iter(&3).collect::<HashSet<_>>(), three_set);
-	/// ```
+    /// Returns an iterator over all keys associated with a given value.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// # use bimultimap::BiMultiMap;
+    /// # use std::collections::HashSet;
+    /// let mut map = BiMultiMap::new(10, 10);
+    /// map.insert(10, 10);
+    /// map.insert(12, 10);
+    /// map.insert(9, 3);
+    ///
+    /// let ten_set: HashSet<_> = [10, 12].into_iter().collect();
+    /// assert_eq!(map.val_iter(&10).collect::<HashSet<_>>(), ten_set);
+    ///
+    /// let three_set: HashSet<_> = [9].into_iter().collect();
+    /// assert_eq!(map.val_iter(&3).collect::<HashSet<_>>(), three_set);
+    /// ```
     pub fn val_iter<'a, 'b>(&'a self, val: &'b V) -> impl Iterator<Item = &'a K> + 'b
     where
         'a: 'b,
